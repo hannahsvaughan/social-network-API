@@ -8,12 +8,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// CONNECT TO MONGOOSE
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network-api', {
-    useFindAndModify: false,
+// CONNECT TO MONGOOSE - not working yet
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social_networkDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
 });
 
 
