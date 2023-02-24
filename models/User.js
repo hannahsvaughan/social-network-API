@@ -10,9 +10,9 @@ const userSchema = new Schema({
     },
     email: {
     type: String,
-    required: true,
+    required: "You need to provide an email!",
     unique: true,
-    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
+    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "You need to provide a valid email!"],
     },
     thoughts: [
     {
@@ -30,16 +30,17 @@ const userSchema = new Schema({
 {
     toJSON: {
         virtuals: true,
+        getters: true
     },
-    id: false,
+    id: false
 });
 
 // CREATE VIRTUAL PROPERTY CALLED friendCount THAT RETRIEVES THE LENGTH OF THE USERS friends ARRAY FIELD ON QUERY
 userSchema.virtual('friendsCount').get(function() {
-    return this.friends.length
+    return this.friends.length;
 });
 
 // INITALIZE USER MODEL
-const User = model("User", userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

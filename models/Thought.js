@@ -17,13 +17,14 @@ const thoughtSchema = new Schema(
     },
     username: {
         type: String,
-        required: true,
+        required: "Please enter your username",
     },
     reactions: [reactionSchema],
     },
     {
     toJSON: {
         virtuals: true,
+        getteres: true
     },
     id: false,
     }
