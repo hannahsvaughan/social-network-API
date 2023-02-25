@@ -13,18 +13,16 @@ const thoughtSchema = new Schema(
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (presentDate) => moment(presentDate).format('MMM DD, YYY hh:mm a')
-    },
+        },
     username: {
         type: String,
-        required: "Please enter your username",
+        required: true,
     },
     reactions: [reactionSchema],
     },
     {
     toJSON: {
-        virtuals: true,
-        getteres: true
+        getters: true
     },
     id: false,
     }

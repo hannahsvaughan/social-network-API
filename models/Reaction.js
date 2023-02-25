@@ -20,12 +20,15 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: (presentDate) => moment(presentDate).format('MMM DD, YYY hh:mm a')
+            get: (date) => {
+                const newDate = new Date(date);
+                return `${newDate.getMonth() + 1}-${newDate.getDate()}-${newDate.getFullYear()}`;
+            },
         },
     },
     {
         toJSON: {
-            virtuals: true,
+            getters: true,
         },
         id: false,
     }

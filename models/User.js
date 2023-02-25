@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 // SCHEMA TO CREATE USER MODEL
 const userSchema = new Schema({
@@ -10,9 +10,9 @@ const userSchema = new Schema({
     },
     email: {
     type: String,
-    required: "You need to provide an email!",
+    required: true,
     unique: true,
-    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, "You need to provide a valid email!"],
+    match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
     },
     thoughts: [
     {
@@ -36,7 +36,7 @@ const userSchema = new Schema({
 });
 
 // CREATE VIRTUAL PROPERTY CALLED friendCount THAT RETRIEVES THE LENGTH OF THE USERS friends ARRAY FIELD ON QUERY
-userSchema.virtual('friendsCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
