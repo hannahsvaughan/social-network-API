@@ -45,7 +45,7 @@ module.exports = {
       .catch((err) => res.json(500).json(err));
   },
   // PUT TO UPDATE THOUGHT BY ITS ID
-  updateThough(req, res) {
+  updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
