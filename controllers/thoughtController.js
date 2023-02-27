@@ -78,8 +78,8 @@ module.exports = {
     )
       .then((thought) =>
         !thought
-          ? res.status(400).json({ message: "No thought with that ID" })
-          : res.jason(thought)
+          ? res.status(404).json({ message: "No thought with that ID" })
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -93,8 +93,8 @@ module.exports = {
     )
       .then((thought) =>
         !thought
-          ? res.status(400).json({ message: "No thought with that ID" })
-          : res.jason(thought)
+          ? res.status(404).json({ message: "No thought with that ID" })
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },

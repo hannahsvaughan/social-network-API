@@ -12,6 +12,7 @@ SO THAT my website can handle large amounts of unstructured data
 Dependencies installed: Express and Mongoose.
 
 ## Video Walkthrough/Usage
+https://drive.google.com/file/d/1ZotfYmRrZo3gwMqJnkXAQk3qWAIX4dfW/view
 
 ## Questions
 If you have any questions about the repo, open an issue or contact me directly at hannahvaughan421@gmail.com.
